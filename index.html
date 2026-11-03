@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Space Rush</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main id="shell">
+        <div id="stage"><canvas id="game" width="900" height="600"></canvas>
+            <div id="hud" class="hidden">
+                <div class="hudrow"><span>RECORDE</span><b id="record">000000</b></div>
+                <div class="hudrow points"><span>PONTOS</span><strong id="score">000000</strong></div>
+                <div class="hudrow"><span>VIDAS</span><b id="lives">♥ ♥ ♥</b></div>
+            </div>
+            <section id="menu" class="panel">
+                <div class="menuInner">
+                    <h1>SPACE <em>RUSH</em></h1><button id="connect" class="secondary">Conectar Arduino</button><button
+                        id="start" class="primary">JOGAR</button>
+                </div>
+            </section>
+            <section id="end" class="panel hidden">
+                <div class="menuInner">
+                    <p class="eyebrow">FIM DE JOGO</p>
+                    <h2>MISSÃO ENCERRADA</h2>
+                    <p id="summary"></p><button id="again" class="primary">JOGAR NOVAMENTE</button><button id="back"
+                        class="secondary">MENU INICIAL</button>
+                </div>
+            </section>
+            <div id="paused" class="hidden">PAUSADO</div>
+        </div>
+        <footer class="toolbar"><span id="connection" class="status">● Arduino desconectado</span>
+            <div class="actions"><button id="pause" class="toolbtn hidden" title="Pausar">Ⅱ Pausar</button><button
+                    id="full" class="toolbtn" title="Alternar tela cheia">⛶ Tela cheia</button></div>
+        </footer>
+    </main>
+    <script src="js/game.js"></script>
+</body>
+
+</html>

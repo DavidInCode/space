@@ -1,0 +1,285 @@
+/* PERSONALIZAÇÃO VISUAL */
+:root {
+    --ship: #55dfff;
+    --ship-outline: #e5faff;
+    --crystal: #74f4ff;
+    --ui: #f2f7ff;
+    --accent: #66dfff;
+    --danger: #ff647a;
+    --panel: rgba(5, 12, 29, .88);
+    --font: system-ui, -apple-system, Segoe UI, sans-serif
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    background: #08152c;
+    color: var(--ui);
+    font-family: var(--font)
+}
+
+body {
+    min-height: 100dvh;
+    display: grid;
+    place-items: center
+}
+
+#shell {
+    width: min(96vw, 900px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+#stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #30466a;
+    background: #050b1c;
+    box-shadow: 0 18px 65px #0007
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%
+}
+
+.hidden {
+    display: none !important
+}
+
+#hud {
+    position: absolute;
+    top: 22px;
+    right: 25px;
+    z-index: 2;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-shadow: 0 2px 12px #000;
+    pointer-events: none
+}
+
+.hudrow {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 12px
+}
+
+.hudrow span {
+    font-size: 16px;
+    letter-spacing: .12em;
+    font-weight: 800;
+    color: #d3e1fa
+}
+
+.hudrow b {
+    font-size: 21px;
+    font-variant-numeric: tabular-nums
+}
+
+.hudrow strong {
+    font-size: 30px;
+    font-variant-numeric: tabular-nums
+}
+
+.hudrow #lives {
+    color: #ff8294;
+    font-size: 25px
+}
+
+.points.flash #score {
+    animation: blink .5s 3
+}
+
+@keyframes blink {
+    50% {
+        opacity: .15
+    }
+}
+
+.panel {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(125deg, #030b1bdc, #08142bb5);
+    padding: 22px
+}
+
+.menuInner {
+    width: min(100%, 340px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: center
+}
+
+h1 {
+    font-size: clamp(42px, 7vw, 68px);
+    line-height: 1;
+    letter-spacing: -.065em;
+    margin: 0 0 32px;
+    font-weight: 900;
+    white-space: nowrap
+}
+
+h1 em {
+    font-style: normal;
+    color: var(--accent)
+}
+
+h2 {
+    font-size: 30px;
+    margin: 0
+}
+
+.eyebrow {
+    letter-spacing: .2em;
+    font-size: 12px;
+    color: #9cb4d2
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-weight: 800;
+    border: 1px solid #3b5479
+}
+
+button.primary {
+    background: var(--accent);
+    color: #07152b;
+    border-color: var(--accent)
+}
+
+button.secondary {
+    background: #14243d;
+    color: #ecf6ff
+}
+
+button:hover {
+    filter: brightness(1.1)
+}
+
+button:disabled {
+    opacity: .45;
+    cursor: not-allowed
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 40px
+}
+
+.status {
+    font-size: 13px;
+    color: #b6c7de
+}
+
+.status.connected {
+    color: #73e0ac
+}
+
+.actions {
+    display: flex;
+    gap: 8px
+}
+
+.toolbtn {
+    background: #14243d;
+    color: #dceaff;
+    padding: 8px 12px;
+    font-size: 12px
+}
+
+#paused {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    background: #020817bd;
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: .12em
+}
+
+#shell:fullscreen {
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #08152c
+}
+
+#shell:fullscreen #stage {
+    width: min(calc((100dvh - 80px)*1.5), calc(100vw - 24px));
+    flex: none
+}
+
+#shell:fullscreen .toolbar {
+    width: min(calc((100dvh - 80px)*1.5), calc(100vw - 24px))
+}
+
+@media(max-width:600px) {
+    #hud {
+        top: 10px;
+        right: 12px;
+        gap: 2px
+    }
+
+    .hudrow span {
+        font-size: 11px
+    }
+
+    .hudrow b {
+        font-size: 13px
+    }
+
+    .hudrow strong {
+        font-size: 19px
+    }
+
+    .hudrow #lives {
+        font-size: 17px
+    }
+
+    .toolbar {
+        flex-wrap: wrap
+    }
+
+    .status {
+        font-size: 11px
+    }
+
+    h1 {
+        font-size: clamp(32px, 9vw, 52px)
+    }
+}
+
+button:disabled {
+    opacity: .42;
+    cursor: not-allowed;
+    filter: grayscale(.5)
+}
